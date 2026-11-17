@@ -102,8 +102,8 @@ Simulate 8 field failure modes and observe system auto-mitigation:
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/<your-username>/aqualink-simulation.git
-cd aqualink-simulation
+git clone https://github.com/GOKUL12246/aqualink-sim.git
+cd aqualink-sim
 
 # 2. Install dependencies
 npm install
