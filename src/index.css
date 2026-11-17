@@ -1,0 +1,288 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────── RESET & BASE ─────────────────────────────── */
+:root {
+  color-scheme: dark;
+  --accent-cyan: #00f2fe;
+  --accent-blue: #38bdf8;
+  --accent-amber: #fbbf24;
+  --accent-emerald: #10b981;
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ─────────────────────────── FONT THEMES ───────────────────────────────── */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #020813;
+  color: #f1f5f9;
+  font-family: 'Rajdhani', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* Rajdhani Theme (Default: High-Tech Subsea Engineering) */
+body.font-rajdhani {
+  font-family: 'Rajdhani', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: 0.028em;
+}
+body.font-rajdhani h1,
+body.font-rajdhani h2,
+body.font-rajdhani h3,
+body.font-rajdhani h4 {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/* Space Grotesk Theme (Modern Geometric Cyber) */
+body.font-space {
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: -0.01em;
+}
+body.font-space h1,
+body.font-space h2,
+body.font-space h3,
+body.font-space h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Plus Jakarta Sans Theme (Clean Professional UI) */
+body.font-jakarta {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: -0.01em;
+}
+body.font-jakarta h1,
+body.font-jakarta h2,
+body.font-jakarta h3,
+body.font-jakarta h4 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* Orbitron Theme (Sci-Fi Futuristic Command) */
+body.font-orbitron {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: 0.01em;
+}
+body.font-orbitron h1,
+body.font-orbitron h2,
+body.font-orbitron h3,
+body.font-orbitron h4 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+/* ─────────────────────────── MONOSPACE DATA ────────────────────────────── */
+.font-mono {
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace !important;
+  font-feature-settings: 'zero' 1, 'tnum' 1;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+}
+
+/* ─────────────────────────── COLOR & CONTRAST FIXES ────────────────────── */
+/* Ensure all text colors have high contrast against deep dark backgrounds */
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff;
+  line-height: 1.25;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  color: #cbd5e1;
+}
+
+/* Boost previously dim gray text into crisp, readable silver tones */
+.text-slate-400 {
+  color: #cbd5e1 !important;
+}
+
+.text-slate-500 {
+  color: #94a3b8 !important;
+}
+
+.text-slate-300 {
+  color: #e2e8f0 !important;
+}
+
+.text-slate-200 {
+  color: #f8fafc !important;
+}
+
+/* Micro-font size upscaler (makes tiny illegible 9px/10px text sharp & readable) */
+.text-\[9px\] {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+}
+
+.text-\[10px\] {
+  font-size: 11.5px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.03em !important;
+}
+
+.text-\[11px\] {
+  font-size: 12.5px !important;
+  letter-spacing: 0.02em !important;
+}
+
+/* Prevent large numeric readouts from clipping ascenders/descenders */
+.text-2xl, .text-3xl, .text-4xl, .text-5xl {
+  line-height: 1.15 !important;
+  font-weight: 700 !important;
+  color: #ffffff;
+}
+
+/* Table cells always align to left-top */
+table {
+  border-collapse: collapse;
+}
+th, td {
+  text-align: left;
+  vertical-align: top;
+}
+
+/* ─────────────────────────── COLOR THEME ACCENTS ───────────────────────── */
+/* Theme 1: Cyan Glow (Default) */
+body.theme-cyan {
+  --theme-accent: #00f2fe;
+  --theme-badge-bg: rgba(0, 242, 254, 0.18);
+  --theme-badge-border: rgba(0, 242, 254, 0.45);
+}
+
+/* Theme 2: Maritime Amber */
+body.theme-amber {
+  --theme-accent: #fbbf24;
+  --theme-badge-bg: rgba(251, 191, 36, 0.18);
+  --theme-badge-border: rgba(251, 191, 36, 0.45);
+}
+body.theme-amber .text-cyan-400 {
+  color: #38bdf8 !important;
+}
+
+/* Theme 3: Bio Emerald */
+body.theme-emerald {
+  --theme-accent: #10b981;
+  --theme-badge-bg: rgba(16, 185, 129, 0.18);
+  --theme-badge-border: rgba(16, 185, 129, 0.45);
+}
+
+/* Theme 4: Titanium Ice */
+body.theme-titanium {
+  --theme-accent: #67e8f9;
+  --theme-badge-bg: rgba(103, 232, 249, 0.16);
+  --theme-badge-border: rgba(226, 232, 240, 0.45);
+}
+
+/* ─────────────────────────── SCROLLBARS ───────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #040d1a;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e3a5f;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0284c7;
+}
+
+/* ─────────────────────────── GLASSMORPHISM PANELS ─────────────────────── */
+.marine-panel {
+  background: rgba(6, 18, 35, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  border-radius: 0.875rem;
+  box-shadow: 0 8px 32px rgba(1, 10, 22, 0.75);
+}
+
+.marine-panel:hover {
+  border-color: rgba(56, 189, 248, 0.35);
+}
+
+.marine-panel-active {
+  background: rgba(10, 28, 52, 0.94);
+  border-color: rgba(0, 242, 254, 0.55);
+  box-shadow: 0 0 24px rgba(0, 242, 254, 0.18), inset 0 0 16px rgba(0, 242, 254, 0.05);
+}
+
+/* ─────────────────────────── GLOW HELPERS ──────────────────────────────── */
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.35);
+}
+.glow-gold {
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.35);
+}
+.glow-danger {
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.45);
+}
+
+/* Text glow utilities */
+.text-glow-cyan {
+  text-shadow: 0 0 10px rgba(0, 242, 254, 0.6);
+}
+.text-glow-amber {
+  text-shadow: 0 0 10px rgba(251, 191, 36, 0.6);
+}
+.text-glow-emerald {
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
+}
+
+/* ─────────────────────────── SONAR SWEEP ───────────────────────────────── */
+@keyframes sonarSweep {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.sonar-sweep {
+  animation: sonarSweep 4s linear infinite;
+}
+
+/* ─────────────────────────── TECH GRID BACKGROUND ─────────────────────── */
+.tech-grid {
+  background-image:
+    linear-gradient(rgba(56, 189, 248, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ─────────────────────────── NAV SCROLL FIX ───────────────────────────── */
+.nav-scroll {
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.nav-scroll::-webkit-scrollbar {
+  display: none;
+}
